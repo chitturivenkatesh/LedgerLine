@@ -1,0 +1,8 @@
+body { background: #f6f8fb; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.sidebar { width: 230px; flex-shrink: 0; }
+@media (max-width: 767.98px) {
+  .sidebar { display: none; }
+  .sidebar.open { display: block; position: fixed; top: 56px; bottom: 0; left: 0; z-index: 1030; box-shadow: 0 0 20px rgba(0,0,0,.2); }
+}
+.card { border: 1px solid #e6e9ef; }
+.table > :not(caption) > * > * { padding: .65rem .75rem; }

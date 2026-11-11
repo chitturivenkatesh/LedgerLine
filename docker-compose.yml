@@ -1,0 +1,13 @@
+# Local MySQL with the schema (and append-only triggers) applied automatically on first start.
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD}
+    ports: ["3306:3306"]
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/schema-test.sql:/docker-entrypoint-initdb.d/02-schema-test.sql:ro
+      - mysqldata:/var/lib/mysql
+volumes:
+  mysqldata:
